@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Dr. Navarro Diego Francisco — Doctor Lawyer. Abogado Penalista especializado en delitos complejos, juicios por jurados populares, mediador y resolutor de conflictos. Mat. Prov. 4648 CASCB · Mat. Federal T°127 F°856."/>
+  <meta name="keywords" content="abogado penalista, juicios por jurados, delitos complejos, Doctor Lawyer, Navarro Diego Francisco, mediador, análisis delictual, investigación compleja, Patagonia"/>
+  <meta property="og:title" content="Doctor Lawyer | Dr. Navarro Diego Francisco — Abogado Penalista"/>
+  <meta property="og:description" content="Especialista en delitos complejos, juicios por jurados, mediación y análisis delictual."/>
+  <meta property="og:type" content="website"/>
+  <title>Doctor Lawyer | Dr. Navarro Diego Francisco</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700;900&family=Rajdhani:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--gold:#F5C400;--gold2:#E0AE00;--gold-pale:#FFF0A0;--black:#070707;--dark:#0F0F0F;--dark2:#161616;--dark3:#1E1E1E;--dark4:#252525;--gray:#777;--lightgray:#AAA;--white:#F8F8F8;--green-wa:#25D366;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--black);color:var(--white);font-family:'Lato',sans-serif;overflow-x:hidden;}
+    ::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--dark);}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;}
+    ::selection{background:var(--gold);color:var(--black);}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:68px;background:rgba(7,7,7,0.97);border-bottom:1px solid rgba(245,196,0,0.18);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;backdrop-filter:blur(10px);}
+    .nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;}
+    .nav-logo-svg{width:46px;height:46px;flex-shrink:0;}
+    .nav-logo-text .t1{display:block;font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:900;color:var(--white);letter-spacing:.04em;}
+    .nav-logo-text .t2{display:block;font-family:'Rajdhani',sans-serif;font-size:.6rem;letter-spacing:.25em;color:var(--gold);text-transform:uppercase;font-weight:600;}
+    .nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center;}
+    .nav-links a{color:var(--lightgray);text-decoration:none;font-family:'Rajdhani',sans-serif;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;transition:color .2s;}
+    .nav-links a:hover{color:var(--gold);}
+    .nav-cta{background:var(--gold)!important;color:var(--black)!important;padding:.42rem 1.1rem!important;font-weight:700!important;}
+    .nav-cta:hover{background:var(--gold-pale)!important;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--gold);transition:all .3s;}
+
+    /* HERO */
+    #hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:90px 2rem 60px;}
+    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 90% 70% at 50% 110%,rgba(245,196,0,0.09) 0%,transparent 65%),radial-gradient(ellipse 50% 50% at 85% 15%,rgba(245,196,0,0.04) 0%,transparent 60%),linear-gradient(180deg,#070707 0%,#0F0F0F 100%);}
+    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(245,196,0,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(245,196,0,0.035) 1px,transparent 1px);background-size:70px 70px;}
+    #matrixCanvas{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0.13;pointer-events:none;}
+    .hero-grid-fade{position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 50% 50%,transparent 30%,var(--black) 100%);}
+    .hero-content{position:relative;text-align:center;max-width:950px;animation:fadeUp .9s ease both;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+    .hero-logo-wrap{display:flex;justify-content:center;margin-bottom:2rem;}
+    .hero-logo-svg{width:160px;height:160px;filter:drop-shadow(0 0 30px rgba(245,196,0,0.25));}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,196,0,0.08);border:1px solid rgba(245,196,0,0.28);color:var(--gold);font-family:'Rajdhani',sans-serif;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;font-weight:700;padding:.38rem 1rem;margin-bottom:1.4rem;}
+    .hero-badge-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;animation:blink 2s infinite;}
+    @keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+    .hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,3vw,1.6rem);font-weight:600;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:.5rem;}
+    .hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,9vw,7rem);font-weight:900;line-height:.95;color:var(--white);margin-bottom:1rem;}
+    .hero-title .g{color:var(--gold);}
+    .hero-penalista{
+      display:inline-block;
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(1.4rem,3.5vw,2.2rem);
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--black);
+      background:var(--gold);
+      padding:.28rem 1.6rem .32rem;
+      margin-bottom:1.4rem;
+      position:relative;
+    }
+    .hero-specs{display:flex;flex-direction:column;gap:.3rem;margin-bottom:1.5rem;font-family:'Rajdhani',sans-serif;font-size:.78rem;letter-spacing:.18em;color:var(--gray);text-transform:uppercase;font-weight:600;}
+    .hero-divider{width:60px;height:2px;background:var(--gold);margin:1.5rem auto;}
+    .hero-tags{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:2.5rem;}
+    .htag{background:rgba(245,196,0,0.07);border:1px solid rgba(245,196,0,0.2);color:var(--gold);font-family:'Rajdhani',sans-serif;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;padding:.3rem .85rem;font-weight:700;}
+    .htag-digital{background:rgba(0,210,255,0.07);border-color:rgba(0,210,255,0.35);color:#00D2FF;}
+    .hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+    .btn-wa{display:inline-flex;align-items:center;gap:10px;background:var(--green-wa);color:#fff;font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.85rem 2rem;text-decoration:none;transition:all .2s;box-shadow:0 4px 20px rgba(37,211,102,0.25);}
+    .btn-wa:hover{background:#1DB954;transform:translateY(-2px);box-shadow:0 8px 30px rgba(37,211,102,0.4);}
+    .btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--gold);border:2px solid rgba(245,196,0,0.35);font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.85rem 2rem;text-decoration:none;transition:all .2s;}
+    .btn-outline:hover{border-color:var(--gold);background:rgba(245,196,0,0.06);}
+    .hero-stats{display:flex;gap:3.5rem;justify-content:center;margin-top:3.5rem;flex-wrap:wrap;}
+
+    /* REDES EN HERO */
+    .hero-social{
+      display:flex;align-items:center;justify-content:center;gap:1.2rem;
+      margin-top:1.8rem;flex-wrap:wrap;
+    }
+    .hero-social-txt{
+      font-family:'Rajdhani',sans-serif;font-size:.72rem;font-weight:600;
+      letter-spacing:.18em;text-transform:uppercase;color:var(--gray);
+      white-space:nowrap;
+    }
+    .hero-social-icons{display:flex;gap:.7rem;align-items:center;}
+    .hsi{
+      width:40px;height:40px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      text-decoration:none;transition:all .25s;
+      border:1px solid rgba(255,255,255,0.1);
+    }
+    .hsi svg{width:18px;height:18px;}
+    .hsi-tt{color:#69C9D0;background:rgba(105,201,208,0.08);}
+    .hsi-tt:hover{background:#69C9D0;color:#000;transform:translateY(-3px);box-shadow:0 6px 18px rgba(105,201,208,0.35);border-color:#69C9D0;}
+    .hsi-ig{color:#E1306C;background:rgba(225,48,108,0.08);}
+    .hsi-ig:hover{background:linear-gradient(135deg,#833AB4,#FD1D1D,#F77737);color:#fff;transform:translateY(-3px);box-shadow:0 6px 18px rgba(253,29,29,0.3);border-color:transparent;}
+    .hsi-yt{color:#FF0000;background:rgba(255,0,0,0.08);}
+    .hsi-yt:hover{background:#FF0000;color:#fff;transform:translateY(-3px);box-shadow:0 6px 18px rgba(255,0,0,0.35);border-color:#FF0000;}
+
+    /* CONSULTA RÁPIDA HERO */
+    .hero-consulta{
+      max-width:680px;margin:2.5rem auto 0;
+      background:rgba(245,196,0,0.06);
+      border:1px solid rgba(245,196,0,0.35);
+      position:relative;overflow:hidden;
+    }
+    .hero-consulta::before{
+      content:'';position:absolute;top:0;left:0;right:0;height:3px;
+      background:linear-gradient(90deg,var(--gold),var(--gold-pale),var(--gold));
+      background-size:200%;
+      animation:shimmer 2.5s linear infinite;
+    }
+    @keyframes shimmer{0%{background-position:200%;}100%{background-position:-200%;}}
+    .hc-header{
+      display:flex;align-items:center;gap:10px;
+      padding:.9rem 1.5rem;
+      border-bottom:1px solid rgba(245,196,0,0.18);
+      background:rgba(245,196,0,0.05);
+    }
+    .hc-pulse{
+      width:10px;height:10px;background:var(--gold);border-radius:50%;flex-shrink:0;
+      box-shadow:0 0 0 0 rgba(245,196,0,0.6);
+      animation:heartbeat 1.5s infinite;
+    }
+    @keyframes heartbeat{
+      0%{box-shadow:0 0 0 0 rgba(245,196,0,0.6);}
+      70%{box-shadow:0 0 0 10px rgba(245,196,0,0);}
+      100%{box-shadow:0 0 0 0 rgba(245,196,0,0);}
+    }
+    .hc-label{
+      font-family:'Rajdhani',sans-serif;font-size:.78rem;font-weight:700;
+      letter-spacing:.15em;text-transform:uppercase;color:var(--gold);
+    }
+    .hc-body{padding:1.4rem 1.5rem;}
+    .hc-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:.8rem;}
+    .hc-input{
+      background:rgba(0,0,0,0.4);border:1px solid rgba(245,196,0,0.22);
+      color:var(--white);padding:.7rem 1rem;
+      font-family:'Lato',sans-serif;font-size:.9rem;outline:none;width:100%;
+      transition:border-color .2s;
+    }
+    .hc-input:focus{border-color:var(--gold);}
+    .hc-input::placeholder{color:#555;}
+    .hc-textarea{
+      width:100%;background:rgba(0,0,0,0.4);border:1px solid rgba(245,196,0,0.22);
+      color:var(--white);padding:.7rem 1rem;
+      font-family:'Lato',sans-serif;font-size:.9rem;outline:none;
+      height:90px;resize:none;margin-bottom:.8rem;display:block;
+      transition:border-color .2s;
+    }
+    .hc-textarea:focus{border-color:var(--gold);}
+    .hc-textarea::placeholder{color:#555;}
+    .hc-btn{
+      width:100%;display:flex;align-items:center;justify-content:center;gap:10px;
+      background:var(--green-wa);color:#fff;border:none;cursor:pointer;
+      font-family:'Rajdhani',sans-serif;font-size:1.05rem;font-weight:700;
+      letter-spacing:.1em;text-transform:uppercase;
+      padding:.95rem 2rem;transition:all .2s;
+      box-shadow:0 4px 20px rgba(37,211,102,0.3);
+    }
+    .hc-btn:hover{background:#1DB954;transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,211,102,0.45);}
+    @media(max-width:600px){.hc-row{grid-template-columns:1fr;}}
+    .stat{text-align:center;}
+    .stat-n{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:900;color:var(--gold);line-height:1;}
+    .stat-l{font-family:'Rajdhani',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);margin-top:4px;font-weight:600;}
+
+    /* SECTIONS */
+    section{padding:90px 2rem;}
+    .container{max-width:1180px;margin:0 auto;}
+    .sec-label{font-family:'Rajdhani',sans-serif;font-size:.68rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;font-weight:700;}
+    .sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,3.6rem);font-weight:900;color:var(--white);line-height:1.05;margin-bottom:1.2rem;}
+    .sec-line{width:55px;height:2px;background:var(--gold);margin-bottom:2rem;}
+
+    /* ABOUT */
+    #about{background:var(--dark);}
+    .about-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:4.5rem;align-items:start;}
+    .about-card{background:var(--dark2);border:1px solid rgba(245,196,0,0.14);padding:2.5rem;position:relative;}
+    .about-card::before{content:'';position:absolute;top:-1px;left:-1px;width:55px;height:55px;border-top:3px solid var(--gold);border-left:3px solid var(--gold);}
+    .about-card::after{content:'';position:absolute;bottom:-1px;right:-1px;width:55px;height:55px;border-bottom:3px solid var(--gold);border-right:3px solid var(--gold);}
+    .ac-logo{display:flex;justify-content:center;margin-bottom:1.5rem;}
+    .ac-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:900;color:var(--white);text-align:center;margin-bottom:.3rem;}
+    .ac-title{text-align:center;color:var(--gold);font-family:'Rajdhani',sans-serif;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin-bottom:1rem;}
+    .ac-div{width:35px;height:2px;background:var(--gold);margin:1rem auto;}
+    .ac-mat{text-align:center;font-family:'Rajdhani',sans-serif;font-size:.68rem;letter-spacing:.1em;color:var(--gray);line-height:1.8;font-weight:600;}
+    .ac-tags{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-top:1.2rem;}
+    .ac-tag{background:rgba(245,196,0,0.07);border:1px solid rgba(245,196,0,0.18);color:var(--gold);font-family:'Rajdhani',sans-serif;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .7rem;font-weight:700;}
+    .about-body p{color:#B8B8B8;line-height:1.9;font-size:.98rem;font-weight:300;margin-bottom:1.1rem;}
+    .about-feats{margin-top:2rem;display:flex;flex-direction:column;gap:1rem;}
+    .feat{display:flex;align-items:flex-start;gap:12px;}
+    .feat-ic{width:36px;height:36px;background:rgba(245,196,0,0.09);border:1px solid rgba(245,196,0,0.25);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+    .feat-tx strong{display:block;color:var(--white);font-size:.88rem;font-weight:700;margin-bottom:2px;}
+    .feat-tx span{color:var(--gray);font-size:.82rem;font-weight:300;}
+
+    /* SERVICES */
+    #services{background:var(--black);}
+    .srv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.3rem;margin-top:2.5rem;}
+    .srv{background:var(--dark2);border:1px solid rgba(245,196,0,0.08);padding:2.2rem 1.8rem;position:relative;overflow:hidden;transition:all .3s;}
+    .srv::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .3s;}
+    .srv:hover::before{transform:scaleX(1);}
+    .srv:hover{border-color:rgba(245,196,0,0.25);transform:translateY(-4px);}
+    .srv-n{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:900;color:rgba(245,196,0,0.08);line-height:1;margin-bottom:.8rem;}
+    .srv-ic{font-size:1.8rem;margin-bottom:.8rem;}
+    .srv-t{font-family:'Rajdhani',sans-serif;font-size:1.05rem;font-weight:700;letter-spacing:.06em;color:var(--white);text-transform:uppercase;margin-bottom:.6rem;}
+    .srv-d{color:var(--gray);font-size:.86rem;line-height:1.7;font-weight:300;}
+
+    .srv-digital{border-color:rgba(0,210,255,0.18)!important;}
+    .srv-digital::before{background:linear-gradient(90deg,#00D2FF,#0088CC)!important;}
+    .srv-digital .srv-n{color:rgba(0,210,255,0.12)!important;}
+    .srv-digital .srv-t{color:#00D2FF!important;}
+    #actualidad{background:var(--dark);}
+    .act-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.3rem;margin-top:2.5rem;}
+    .act-card{background:var(--dark3);border:1px solid rgba(245,196,0,0.07);overflow:hidden;transition:all .3s;}
+    .act-card:hover{border-color:rgba(245,196,0,0.22);transform:translateY(-3px);}
+    .act-img{height:150px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;background:linear-gradient(135deg,var(--dark2),var(--dark4));border-bottom:1px solid rgba(245,196,0,0.06);}
+    .act-body{padding:1.4rem;}
+    .act-cat{font-family:'Rajdhani',sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:.4rem;}
+    .act-t{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--white);margin-bottom:.5rem;line-height:1.35;}
+    .act-ex{font-size:.8rem;color:var(--gray);line-height:1.6;font-weight:300;}
+
+    /* NOTICIAS & VIDEOS */
+    #noticias{background:var(--black);}
+    .tabs{display:flex;gap:0;border-bottom:1px solid rgba(245,196,0,0.14);margin-bottom:2.5rem;flex-wrap:wrap;}
+    .tab-btn{background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-1px;color:var(--gray);font-family:'Rajdhani',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.7rem 1.4rem;cursor:pointer;transition:all .2s;}
+    .tab-btn:hover{color:var(--white);}
+    .tab-btn.active{color:var(--gold);border-bottom-color:var(--gold);}
+    .tab-content{display:none;}
+    .tab-content.active{display:block;}
+    .vid-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.3rem;}
+    .vid-card{background:var(--dark2);border:1px solid rgba(245,196,0,0.07);overflow:hidden;}
+    .vid-embed{position:relative;width:100%;padding-bottom:56.25%;background:var(--dark3);}
+    .vid-embed iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
+    .vid-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--dark3);gap:.6rem;}
+    .vid-play{width:58px;height:58px;background:rgba(245,196,0,0.1);border:2px solid rgba(245,196,0,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:var(--gold);}
+    .vid-ph p{font-size:.75rem;color:var(--gray);font-family:'Rajdhani',sans-serif;letter-spacing:.1em;text-transform:uppercase;}
+    .vid-info{padding:1rem 1.2rem;}
+    .vid-t{font-family:'Rajdhani',sans-serif;font-size:.95rem;font-weight:700;color:var(--white);letter-spacing:.03em;}
+    .vid-m{font-size:.73rem;color:var(--gray);margin-top:3px;}
+    .news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.3rem;}
+    .news-card{background:var(--dark2);border:1px solid rgba(245,196,0,0.07);overflow:hidden;transition:all .3s;}
+    .news-card:hover{border-color:rgba(245,196,0,0.22);transform:translateY(-3px);}
+    .news-th{height:170px;display:flex;align-items:center;justify-content:center;font-size:3rem;background:linear-gradient(135deg,var(--dark3),var(--dark4));border-bottom:1px solid rgba(245,196,0,0.06);}
+    .news-b{padding:1.3rem;}
+    .news-cat{font-family:'Rajdhani',sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:.4rem;}
+    .news-t{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--white);margin-bottom:.4rem;line-height:1.35;}
+    .news-d{font-size:.73rem;color:var(--gray);}
+    .add-panel{background:var(--dark2);border:1px solid rgba(245,196,0,0.14);padding:2rem;}
+    .add-panel h3{font-family:'Rajdhani',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.3rem;}
+    .frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+    .ff{display:flex;flex-direction:column;gap:5px;}
+    .ff label{font-family:'Rajdhani',sans-serif;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gray);font-weight:700;}
+    .ff input,.ff select,.ff textarea{background:var(--dark3);border:1px solid rgba(245,196,0,0.12);color:var(--white);padding:.65rem .9rem;font-family:'Lato',sans-serif;font-size:.88rem;outline:none;transition:border-color .2s;width:100%;}
+    .ff input:focus,.ff select:focus,.ff textarea:focus{border-color:var(--gold);}
+    .ff select option{background:var(--dark3);}
+    .ff textarea{height:80px;resize:vertical;}
+
+    /* REDES */
+    #redes{background:var(--dark);}
+    .redes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:2.5rem;}
+    .red{display:flex;flex-direction:column;align-items:center;text-align:center;padding:2.5rem 1.5rem;background:var(--dark2);border:1px solid rgba(245,196,0,0.07);text-decoration:none;transition:all .3s;position:relative;overflow:hidden;}
+    .red::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;transform:scaleX(0);transition:transform .3s;}
+    .red.tt::after{background:#69C9D0;}.red.ig::after{background:linear-gradient(90deg,#833AB4,#FD1D1D,#F77737);}.red.yt::after{background:#FF0000;}
+    .red:hover{transform:translateY(-5px);}
+    .red.tt:hover{border-color:rgba(105,201,208,0.3);}.red.ig:hover{border-color:rgba(253,29,29,0.25);}.red.yt:hover{border-color:rgba(255,0,0,0.25);}
+    .red:hover::after{transform:scaleX(1);}
+    .red-ic{font-size:3rem;margin-bottom:1rem;}
+    .red-n{font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--white);margin-bottom:.3rem;}
+    .red-h{font-size:.78rem;color:var(--gray);}
+
+    /* CONTACTO */
+    #contacto{background:var(--black);}
+    .contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:4rem;margin-top:2.5rem;align-items:start;}
+    .ci{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.8rem;}
+    .ci-ic{width:42px;height:42px;background:rgba(245,196,0,0.09);border:1px solid rgba(245,196,0,0.22);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+    .ci-lbl{font-family:'Rajdhani',sans-serif;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:3px;}
+    .ci-val{color:var(--white);font-size:.92rem;}
+    .ci-sub{color:var(--gray);font-size:.78rem;margin-top:2px;}
+    .wa-btn{display:inline-flex;align-items:center;gap:10px;background:var(--green-wa);color:#fff;padding:.9rem 2rem;text-decoration:none;font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:all .2s;margin-top:1rem;}
+    .wa-btn:hover{background:#1DB954;transform:translateY(-2px);box-shadow:0 8px 25px rgba(37,211,102,.35);}
+    .ci-email-wrap{margin:1.4rem 0 0;padding:1.1rem 1.2rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-left:2px solid rgba(245,196,0,0.3);}
+    .ci-email-label{font-family:'Rajdhani',sans-serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);margin-bottom:.6rem;font-weight:600;}
+    .ci-email-btn{display:inline-flex;align-items:center;gap:8px;color:var(--lightgray);text-decoration:none;font-size:.88rem;font-weight:400;transition:color .2s;word-break:break-all;}
+    .ci-email-btn:hover{color:var(--gold);}
+    .ci-email-note{font-size:.72rem;color:#555;margin-top:.4rem;font-style:italic;}
+    .contact-form{background:var(--dark2);border:1px solid rgba(245,196,0,0.12);padding:2.2rem;}
+    .contact-form h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--white);margin-bottom:1.3rem;}
+    .cf-field{display:flex;flex-direction:column;gap:5px;margin-bottom:.9rem;}
+    .cf-field label{font-family:'Rajdhani',sans-serif;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gray);font-weight:700;}
+    .cf-field input,.cf-field select,.cf-field textarea{background:var(--dark3);border:1px solid rgba(245,196,0,0.1);color:var(--white);padding:.7rem .9rem;font-family:'Lato',sans-serif;font-size:.88rem;outline:none;transition:border-color .2s;width:100%;}
+    .cf-field input:focus,.cf-field select:focus,.cf-field textarea:focus{border-color:var(--gold);}
+    .cf-field select option{background:var(--dark3);}
+    .cf-field textarea{height:110px;resize:vertical;}
+    .cf-submit{background:var(--gold);color:var(--black);border:none;padding:.9rem 2rem;font-family:'Rajdhani',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;width:100%;margin-top:.4rem;transition:all .2s;}
+    .cf-submit:hover{background:var(--gold-pale);transform:translateY(-2px);}
+
+    /* COMENTARIOS */
+    #comentarios{background:var(--dark);}
+    .cmts-wrap{max-width:750px;margin:0 auto;}
+    .cmt-form{background:var(--dark2);border:1px solid rgba(245,196,0,0.12);padding:2rem;margin-bottom:2.5rem;}
+    .cmt-form h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--white);margin-bottom:1.2rem;}
+    .cmt{display:flex;gap:1rem;background:var(--dark2);border:1px solid rgba(245,196,0,0.07);padding:1.4rem;margin-bottom:1rem;}
+    .cmt-av{width:42px;height:42px;background:rgba(245,196,0,0.09);border:1px solid rgba(245,196,0,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+    .cmt-nm{font-weight:700;color:var(--white);font-size:.88rem;margin-bottom:3px;}
+    .cmt-dt{font-size:.72rem;color:var(--gray);margin-bottom:.5rem;}
+    .cmt-tx{color:#BBBBB8;font-size:.88rem;line-height:1.65;font-weight:300;}
+
+    /* FOOTER */
+    footer{background:#050505;border-top:1px solid rgba(245,196,0,0.1);padding:2.5rem 2rem;text-align:center;}
+    .ft-logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:900;color:var(--gold);margin-bottom:.3rem;}
+    .ft-sub{font-family:'Rajdhani',sans-serif;font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gray);margin-bottom:.6rem;}
+    .ft-mat{font-family:'Rajdhani',sans-serif;font-size:.6rem;letter-spacing:.1em;color:#444;margin-bottom:1.2rem;line-height:1.8;}
+    .ft-links{display:flex;gap:1.8rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.2rem;}
+    .ft-links a{color:var(--gray);text-decoration:none;font-family:'Rajdhani',sans-serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;transition:color .2s;}
+    .ft-links a:hover{color:var(--gold);}
+    .ft-copy{font-size:.7rem;color:#333;}
+
+    /* FLOAT WA */
+    .float-wa{position:fixed;bottom:2rem;right:2rem;width:58px;height:58px;background:var(--green-wa);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.7rem;text-decoration:none;z-index:999;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:all .3s;animation:popIn 1s ease 2.5s both;}
+    .float-wa:hover{transform:scale(1.12);box-shadow:0 6px 30px rgba(37,211,102,0.55);}
+    @keyframes popIn{from{opacity:0;transform:scale(0);}to{opacity:1;transform:scale(1);}}
+
+    /* TOAST */
+    .toast{position:fixed;bottom:5.5rem;right:2rem;background:var(--gold);color:var(--black);padding:.7rem 1.4rem;font-family:'Rajdhani',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.05em;z-index:3000;transform:translateY(80px);opacity:0;transition:all .3s;}
+    .toast.show{transform:translateY(0);opacity:1;}
+
+    /* RESPONSIVE */
+    @media(max-width:960px){
+      .about-grid{grid-template-columns:1fr;gap:2.5rem;}
+      .contact-grid{grid-template-columns:1fr;gap:2rem;}
+      .redes-grid{grid-template-columns:1fr;}
+      .frow{grid-template-columns:1fr;}
+      nav{padding:0 1rem;}
+      .nav-links{display:none;}
+      .nav-links.open{display:flex;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:var(--black);border-bottom:1px solid rgba(245,196,0,0.14);padding:1.3rem 1.5rem;gap:.9rem;}
+      .hamburger{display:flex;}
+    }
+    @media(max-width:600px){
+      section{padding:70px 1.2rem;}
+      .hero-stats{gap:2rem;}
+      .hero-logo-svg{width:120px;height:120px;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    <svg class="nav-logo-svg" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="23,2 44,13 44,33 23,44 2,33 2,13" fill="#0F0F0F" stroke="#F5C400" stroke-width="1.5"/>
+      <polygon points="23,7 39,16 39,30 23,39 7,30 7,16" fill="none" stroke="rgba(245,196,0,0.2)" stroke-width="0.8"/>
+      <line x1="23" y1="13" x2="23" y2="30" stroke="#F5C400" stroke-width="1.3"/>
+      <line x1="13" y1="18" x2="33" y2="18" stroke="#F5C400" stroke-width="1.3"/>
+      <line x1="13" y1="18" x2="10" y2="25" stroke="#F5C400" stroke-width="0.9" stroke-dasharray="1,1"/>
+      <ellipse cx="10" cy="26.5" rx="5.5" ry="2" fill="none" stroke="#F5C400" stroke-width="1.1"/>
+      <line x1="33" y1="18" x2="36" y2="25" stroke="#F5C400" stroke-width="0.9" stroke-dasharray="1,1"/>
+      <ellipse cx="36" cy="26.5" rx="5.5" ry="2" fill="none" stroke="#F5C400" stroke-width="1.1"/>
+      <polygon points="23,13 20,17 26,17" fill="#F5C400"/>
+      <rect x="19" y="30" width="8" height="1.5" rx="0.5" fill="#F5C400"/>
+    </svg>
+    <div class="nav-logo-text">
+      <span class="t1">Doctor Lawyer</span>
+      <span class="t2">Estudio Jurídico Penal</span>
+    </div>
+  </a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menú"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about" onclick="closeMenu()">Nosotros</a></li>
+    <li><a href="#services" onclick="closeMenu()">Servicios</a></li>
+    <li><a href="#actualidad" onclick="closeMenu()">Actualidad</a></li>
+    <li><a href="#noticias" onclick="closeMenu()">Videos</a></li>
+    <li><a href="#redes" onclick="closeMenu()">Redes</a></li>
+    <li><a href="#comentarios" onclick="closeMenu()">Comentarios</a></li>
+    <li><a href="#contacto" class="nav-cta" onclick="closeMenu()">Consultar</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <canvas id="matrixCanvas"></canvas>
+  <div class="hero-grid-fade"></div>
+  <div class="hero-content">
+    <div class="hero-logo-wrap">
+      <svg class="hero-logo-svg" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <radialGradient id="bgG" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#1C1800"/><stop offset="100%" stop-color="#070707"/></radialGradient>
+          <linearGradient id="gG" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFE066"/><stop offset="50%" stop-color="#F5C400"/><stop offset="100%" stop-color="#C9A000"/></linearGradient>
+        </defs>
+        <!-- Hexágono principal -->
+        <polygon points="80,6 150,44 150,116 80,154 10,116 10,44" fill="url(#bgG)" stroke="url(#gG)" stroke-width="2.5"/>
+        <!-- Hexágono interior -->
+        <polygon points="80,18 138,50 138,110 80,142 22,110 22,50" fill="none" stroke="rgba(245,196,0,0.18)" stroke-width="1"/>
+        <!-- Balanza de justicia con glow -->
+        <g filter="url(#glow)">
+          <!-- Palo central -->
+          <line x1="80" y1="38" x2="80" y2="102" stroke="#F5C400" stroke-width="2.5"/>
+          <!-- Triángulo cima -->
+          <polygon points="80,38 74,48 86,48" fill="#F5C400"/>
+          <!-- Brazo horizontal -->
+          <line x1="38" y1="56" x2="122" y2="56" stroke="#F5C400" stroke-width="2.2"/>
+          <!-- Cadenas izq -->
+          <line x1="38" y1="56" x2="32" y2="76" stroke="#F5C400" stroke-width="1.4" stroke-dasharray="2.5,2"/>
+          <!-- Plato izq -->
+          <path d="M18 80 Q32 74 46 80" stroke="#F5C400" stroke-width="2" fill="none"/>
+          <line x1="18" y1="80" x2="46" y2="80" stroke="#F5C400" stroke-width="2"/>
+          <!-- Cadenas der -->
+          <line x1="122" y1="56" x2="128" y2="76" stroke="#F5C400" stroke-width="1.4" stroke-dasharray="2.5,2"/>
+          <!-- Plato der -->
+          <path d="M114 80 Q128 74 142 80" stroke="#F5C400" stroke-width="2" fill="none"/>
+          <line x1="114" y1="80" x2="142" y2="80" stroke="#F5C400" stroke-width="2"/>
+          <!-- Base -->
+          <rect x="68" y="102" width="24" height="3" rx="1.5" fill="#F5C400"/>
+          <rect x="60" y="105" width="40" height="2" rx="1" fill="#F5C400" opacity="0.5"/>
+        </g>
+        <!-- Línea decorativa -->
+        <line x1="30" y1="116" x2="130" y2="116" stroke="#F5C400" stroke-width="0.6" opacity="0.4"/>
+        <!-- Texto DOCTOR -->
+        <text x="80" y="128" text-anchor="middle" font-family="Georgia,serif" font-size="14" font-weight="900" fill="#F5C400" letter-spacing="3">DOCTOR</text>
+        <!-- Separador -->
+        <line x1="48" y1="133" x2="112" y2="133" stroke="#F5C400" stroke-width="0.7" opacity="0.45"/>
+        <!-- Texto LAWYER -->
+        <text x="80" y="145" text-anchor="middle" font-family="Georgia,serif" font-size="11.5" font-weight="700" fill="#F5C400" letter-spacing="4" opacity="0.88">LAWYER</text>
+        <!-- Detalles esquinas -->
+        <text x="18" y="85" text-anchor="middle" font-size="9" fill="#F5C400" opacity="0.4">✦</text>
+        <text x="142" y="85" text-anchor="middle" font-size="9" fill="#F5C400" opacity="0.4">✦</text>
+      </svg>
+    </div>
+    <div class="hero-badge"><span class="hero-badge-dot"></span>Derecho Penal · Patagonia Argentina</div>
+    <div class="hero-name">Dr. Navarro Diego Francisco</div>
+    <h1 class="hero-title"><span class="g">Doctor</span> Lawyer</h1>
+    <div class="hero-penalista">⚖️ Abogado Penalista</div>
+    <div class="hero-specs">
+      <span>Mat. Provincial N° 4648 · CASCB</span>
+      <span>Mat. Federal T° 127 — F° 856</span>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-tags">
+      <span class="htag">🏛️ Juicios por Jurados</span>
+      <span class="htag">🔍 Delitos Complejos</span>
+      <span class="htag">🤝 Mediador · RAC</span>
+      <span class="htag">🕵️ Análisis Delictual</span>
+      <span class="htag">📋 Investigación Compleja</span>
+      <span class="htag htag-digital">📱 Prueba Digital · Perito Forense Celular</span>
+    </div>
+    <div class="hero-btns">
+      <a href="https://wa.me/542944500611?text=Hola%20Doctor%20Lawyer%2C%20necesito%20consultar%20sobre%20un%20caso." target="_blank" class="btn-wa">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.524 5.847L.057 23.55a.75.75 0 0 0 .916.948l5.93-1.557A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.855 0-3.59-.5-5.085-1.373l-.363-.215-3.52.923.939-3.427-.236-.374A9.951 9.951 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Consultar — 2944 500611
+      </a>
+      <a href="#services" class="btn-outline">Ver servicios ↓</a>
+    </div>
+
+    <!-- CONSULTA RÁPIDA HERO -->
+    <div class="hero-consulta">
+      <div class="hc-header">
+        <span class="hc-pulse"></span>
+        <span class="hc-label">Dejá tu consulta — Te respondemos a la brevedad</span>
+      </div>
+      <div class="hc-body">
+        <div class="hc-row">
+          <input type="text" id="hcNombre" placeholder="Tu nombre" class="hc-input"/>
+          <input type="tel" id="hcTel" placeholder="Teléfono / WhatsApp" class="hc-input"/>
+        </div>
+        <textarea id="hcMsg" class="hc-textarea" placeholder="Describí brevemente tu situación o consulta..."></textarea>
+        <button class="hc-btn" onclick="enviarConsultaHero()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.524 5.847L.057 23.55a.75.75 0 0 0 .916.948l5.93-1.557A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.855 0-3.59-.5-5.085-1.373l-.363-.215-3.52.923.939-3.427-.236-.374A9.951 9.951 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Enviar consulta por WhatsApp
+        </button>
+      </div>
+    </div>
+
+    <!-- REDES EN HERO -->
+    <div class="hero-social">
+      <span class="hero-social-txt">▶ Mirá videos y contenido del Dr. Lawyer</span>
+      <div class="hero-social-icons">
+        <a href="https://www.tiktok.com/@doctorlawyer_bariloche" target="_blank" class="hsi hsi-tt" title="TikTok — @doctorlawyer_bariloche">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.29 6.29 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.72a4.85 4.85 0 0 1-1.01-.03z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/doctorlawyer_penal/" target="_blank" class="hsi hsi-ig" title="Instagram — @doctorlawyer_penal">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@doctorlawyer2432" target="_blank" class="hsi hsi-yt" title="YouTube — @doctorlawyer2432">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-n">15+</div><div class="stat-l">Años en ejercicio</div></div>
+      <div class="stat"><div class="stat-n">500+</div><div class="stat-l">Casos resueltos</div></div>
+      <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Compromiso</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="about-card">
+          <div class="ac-logo">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:90px;height:90px;">
+              <defs><linearGradient id="ag2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFE066"/><stop offset="100%" stop-color="#C9A000"/></linearGradient></defs>
+              <polygon points="50,4 94,27.5 94,72.5 50,96 6,72.5 6,27.5" fill="#111" stroke="url(#ag2)" stroke-width="2"/>
+              <polygon points="50,12 86,31 86,69 50,88 14,69 14,31" fill="none" stroke="rgba(245,196,0,0.18)" stroke-width="1"/>
+              <line x1="50" y1="28" x2="50" y2="64" stroke="#F5C400" stroke-width="2"/>
+              <polygon points="50,28 45,36 55,36" fill="#F5C400"/>
+              <line x1="24" y1="37" x2="76" y2="37" stroke="#F5C400" stroke-width="2"/>
+              <line x1="24" y1="37" x2="19" y2="51" stroke="#F5C400" stroke-width="1.2" stroke-dasharray="2,1.5"/>
+              <line x1="76" y1="37" x2="81" y2="51" stroke="#F5C400" stroke-width="1.2" stroke-dasharray="2,1.5"/>
+              <line x1="10" y1="53" x2="28" y2="53" stroke="#F5C400" stroke-width="2"/>
+              <line x1="72" y1="53" x2="90" y2="53" stroke="#F5C400" stroke-width="2"/>
+              <rect x="43" y="64" width="14" height="2.5" rx="1" fill="#F5C400"/>
+              <rect x="37" y="66.5" width="26" height="1.5" rx="0.8" fill="#F5C400" opacity="0.5"/>
+              <text x="50" y="79" text-anchor="middle" font-family="Georgia,serif" font-size="8" font-weight="900" fill="#F5C400" letter-spacing="2">DOCTOR</text>
+              <text x="50" y="88" text-anchor="middle" font-family="Georgia,serif" font-size="6.5" font-weight="700" fill="#F5C400" letter-spacing="2.5" opacity="0.85">LAWYER</text>
+            </svg>
+          </div>
+          <div class="ac-name">Dr. Navarro Diego Francisco</div>
+          <div class="ac-title">Abogado Penalista · Doctor Lawyer</div>
+          <div class="ac-div"></div>
+          <div class="ac-mat">Mat. Provincial N° 4648 — CASCB<br/>Mat. Federal T° 127 — F° 856<br/>WhatsApp: +54 9 2944 500611</div>
+          <div class="ac-tags">
+            <span class="ac-tag">Abogado Penalista</span>
+            <span class="ac-tag">Juicios por Jurados</span>
+            <span class="ac-tag">Delitos Complejos</span>
+            <span class="ac-tag">Mediador · RAC</span>
+            <span class="ac-tag">Análisis Delictual</span>
+            <span class="ac-tag">Investigación Compleja</span>
+            <span class="ac-tag" style="background:rgba(0,210,255,0.07);border-color:rgba(0,210,255,0.3);color:#00D2FF;">📱 Perito Forense Digital</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-body">
+        <div class="sec-label">Sobre el Estudio</div>
+        <h2 class="sec-title">Defensa Penal Certera y Personalizada</h2>
+        <div class="sec-line"></div>
+        <p>El Dr. Navarro Diego Francisco, conocido como <strong style="color:var(--gold)">Doctor Lawyer</strong>, es un abogado penalista con más de quince años de experiencia en la litigación penal compleja en la Patagonia argentina y a nivel federal.</p>
+        <p>Especialista en la defensa ante <strong style="color:var(--white)">juicios por jurados populares</strong>, donde la oratoria, la estrategia narrativa y el manejo de la sala son determinantes. Su práctica abarca desde la investigación preparatoria hasta el debate oral, los recursos y presentaciones de difícil elaboración técnica.</p>
+        <p>Realiza una <strong style="color:var(--white)">investigación pormenorizada en delitos complejos</strong>, analizando cada detalle de la causa para construir estrategias de defensa sólidas y certeras. Brinda <strong style="color:var(--white)">atención personalizada y en lenguaje claro y comprensible</strong>, para que cada cliente entienda en todo momento el estado y las opciones de su caso.</p>
+        <p>Atiende a <strong style="color:var(--white)">familiares de personas privadas de la libertad</strong>, orientándolos sobre sus derechos y los pasos a seguir. Realiza presentaciones en el marco de la <strong style="color:var(--white)">Ley 24.660 de Ejecución Penal</strong>, incluyendo gestiones para <strong style="color:var(--white)">salidas transitorias y libertad condicional</strong>.</p>
+        <p>Cuenta con formación especializada como <strong style="color:var(--white)">Mediador y Resolutor Alternativo de Conflictos</strong>, y con profunda especialización en <strong style="color:var(--white)">Análisis Delictual e Investigación Compleja</strong>, herramientas que le permiten abordar cada causa con rigor técnico y visión estratégica integral.</p>
+        <p>Especialista en <strong style="color:#00D2FF">Prueba Digital</strong> y <strong style="color:#00D2FF">Perito de Extracción de Datos Forenses de Dispositivos Móviles</strong>: análisis, validación y presentación de evidencia digital extraída de celulares como prueba en el proceso penal, con plena validez técnica y jurídica.</p>
+        <div class="about-feats">
+          <div class="feat">
+            <div class="feat-ic">🏛️</div>
+            <div class="feat-tx">
+              <strong>Juicios por Jurados Populares</strong>
+              <span>Estrategia narrativa y oratoria de alto impacto ante el jurado</span>
+            </div>
+          </div>
+          <div class="feat">
+            <div class="feat-ic">👨‍👩‍👧</div>
+            <div class="feat-tx">
+              <strong>Atención a familias de personas privadas de la libertad</strong>
+              <span>Orientación, seguimiento y gestiones bajo Ley 24.660 — salidas transitorias y libertad condicional</span>
+            </div>
+          </div>
+          <div class="feat">
+            <div class="feat-ic">🤝</div>
+            <div class="feat-tx">
+              <strong>Mediador y Resolutor Alternativo de Conflictos</strong>
+              <span>Resolución extrajudicial eficiente y consensuada</span>
+            </div>
+          </div>
+          <div class="feat">
+            <div class="feat-ic">🕵️</div>
+            <div class="feat-tx">
+              <strong>Análisis Delictual e Investigación Compleja</strong>
+              <span>Metodología científica aplicada a la investigación penal y recursos de difícil presentación</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="sec-label">Lo que hacemos</div>
+    <h2 class="sec-title">Áreas de práctica</h2>
+    <div class="sec-line"></div>
+    <div class="srv-grid">
+      <div class="srv"><div class="srv-n">01</div><div class="srv-ic">⚖️</div><div class="srv-t">Juicios por Jurados</div><div class="srv-d">Defensa especializada ante tribunales de jurados populares. Selección del jurado, apertura, examen de testigos y clausura de alto impacto persuasivo.</div></div>
+      <div class="srv"><div class="srv-n">02</div><div class="srv-ic">🔍</div><div class="srv-t">Delitos Complejos</div><div class="srv-d">Crimen organizado, narcotráfico, trata de personas, terrorismo, corrupción pública y delitos transnacionales de alta complejidad investigativa.</div></div>
+      <div class="srv"><div class="srv-n">03</div><div class="srv-ic">🔒</div><div class="srv-t">Delitos contra la Integridad Sexual</div><div class="srv-d">Representación tanto de la parte querellante como del imputado en causas por delitos sexuales. Enfoque riguroso, confidencial y con profundo respeto por todas las partes involucradas.</div></div>
+      <div class="srv"><div class="srv-n">04</div><div class="srv-ic">🪖</div><div class="srv-t">Defensa de Fuerzas de Seguridad</div><div class="srv-d">Defensa exclusiva de efectivos de Policía Provincial, Policía Federal, Gendarmería Nacional y Ejército Argentino, en causas penales y en el ámbito del Derecho Administrativo disciplinario.</div></div>
+      <div class="srv"><div class="srv-n">05</div><div class="srv-ic">🛡️</div><div class="srv-t">Defensa Penal Integral</div><div class="srv-d">Asistencia desde la primera declaración, control de detención, excarcelaciones y acompañamiento en todas las instancias del proceso. Atención a familiares y gestiones bajo Ley 24.660.</div></div>
+      <div class="srv"><div class="srv-n">06</div><div class="srv-ic">🤝</div><div class="srv-t">Mediación y RAC</div><div class="srv-d">Resolución Alternativa de Conflictos. Mediación penal, acuerdos de reparación integral y métodos extrajudiciales para soluciones eficientes.</div></div>
+      <div class="srv"><div class="srv-n">07</div><div class="srv-ic">🕵️</div><div class="srv-t">Análisis Delictual</div><div class="srv-d">Investigación compleja, análisis de patrones delictivos, perfiles criminales y asesoramiento técnico en causas de alta complejidad probatoria.</div></div>
+      <div class="srv"><div class="srv-n">08</div><div class="srv-ic">🏚️</div><div class="srv-t">Usurpación y Desalojos Penales</div><div class="srv-d">Defensa y querella en causas por usurpación de terrenos y propiedades. Desalojos forzosos por vía penal, recupero urgente de inmuebles y representación tanto de propietarios afectados como de ocupantes imputados.</div></div>
+      <div class="srv srv-digital"><div class="srv-n">09</div><div class="srv-ic">📱</div><div class="srv-t">Prueba Digital · Peritaje Forense Celular</div><div class="srv-d">Especialista en extracción, análisis y presentación de datos forenses de dispositivos móviles como prueba en el proceso penal. Validación técnica y jurídica de evidencia digital: mensajes, geolocalización, imágenes, llamadas y metadatos.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTUALIDAD -->
+<section id="actualidad">
+  <div class="container">
+    <div class="sec-label">Derecho penal hoy</div>
+    <h2 class="sec-title">Temas de actualidad</h2>
+    <div class="sec-line"></div>
+    <div class="act-grid">
+      <div class="act-card"><div class="act-img">🏛️</div><div class="act-body"><div class="act-cat">Juicio por Jurados</div><div class="act-t">La expansión del juicio por jurados en Argentina: estado actual y perspectivas</div><div class="act-ex">Avance provincia por provincia y sus implicancias para la defensa penal moderna.</div></div></div>
+      <div class="act-card"><div class="act-img">💼</div><div class="act-body"><div class="act-cat">Delitos Económicos</div><div class="act-t">Reformas al régimen penal tributario: qué cambió y cómo afecta a los contribuyentes</div><div class="act-ex">Las últimas reformas y su impacto en la persecución de delitos fiscales en Argentina.</div></div></div>
+      <div class="act-card"><div class="act-img">⚡</div><div class="act-body"><div class="act-cat">Crimen Organizado</div><div class="act-t">Nuevas herramientas procesales en la lucha contra el narcotráfico</div><div class="act-ex">Agentes encubiertos, entregas controladas y técnicas especiales de investigación.</div></div></div>
+      <div class="act-card"><div class="act-img">🔐</div><div class="act-body"><div class="act-cat">Derechos Fundamentales</div><div class="act-t">Prisión preventiva: uso y abuso de la medida cautelar más gravosa</div><div class="act-ex">Estándares internacionales versus práctica judicial cotidiana en Argentina.</div></div></div>
+      <div class="act-card"><div class="act-img">🤖</div><div class="act-body"><div class="act-cat">Tecnología y Derecho</div><div class="act-t">Evidencia digital en el proceso penal: admisibilidad y cadena de custodia</div><div class="act-ex">Cómo los tribunales argentinos abordan la evidencia digital en el proceso penal.</div></div></div>
+      <div class="act-card"><div class="act-img">🤝</div><div class="act-body"><div class="act-cat">Mediación</div><div class="act-t">La mediación penal como alternativa real al proceso adversarial</div><div class="act-ex">Ventajas, límites y aplicaciones concretas de la resolución alternativa en causas penales.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTICIAS & VIDEOS -->
+<section id="noticias">
+  <div class="container">
+    <div class="sec-label">Contenido</div>
+    <h2 class="sec-title">Noticias & Videos</h2>
+    <div class="sec-line"></div>
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab(event,'t-videos')">▶ Videos</button>
+      <button class="tab-btn" onclick="switchTab(event,'t-news')">📰 Noticias</button>
+      <button class="tab-btn" onclick="switchTab(event,'t-add')">＋ Subir contenido</button>
+    </div>
+    <div class="tab-content active" id="t-videos">
+      <div class="vid-grid" id="vidGrid">
+        <div class="vid-card"><div class="vid-embed"><div class="vid-ph"><div class="vid-play">▶</div><p>Audiencias penales</p></div></div><div class="vid-info"><div class="vid-t">Audiencia de control de detención — Caso emblemático</div><div class="vid-m">Doctor Lawyer · Próximamente</div></div></div>
+        <div class="vid-card"><div class="vid-embed"><div class="vid-ph"><div class="vid-play">▶</div><p>Juicio por jurado popular</p></div></div><div class="vid-info"><div class="vid-t">Alegato de clausura ante jurado popular</div><div class="vid-m">Doctor Lawyer · Próximamente</div></div></div>
+        <div class="vid-card"><div class="vid-embed"><div class="vid-ph"><div class="vid-play">▶</div><p>Análisis jurídico</p></div></div><div class="vid-info"><div class="vid-t">Análisis: Reforma al Código Procesal Penal</div><div class="vid-m">Doctor Lawyer · Próximamente</div></div></div>
+      </div>
+    </div>
+    <div class="tab-content" id="t-news">
+      <div class="news-grid" id="newsGrid">
+        <div class="news-card"><div class="news-th">📰</div><div class="news-b"><div class="news-cat">Penal</div><div class="news-t">Doctor Lawyer obtiene absolución en juicio por jurados</div><div class="news-d">28 de marzo, 2026</div></div></div>
+        <div class="news-card"><div class="news-th">⚖️</div><div class="news-b"><div class="news-cat">Jurisprudencia</div><div class="news-t">Fallo clave de la Corte Suprema en materia de prisión preventiva</div><div class="news-d">20 de marzo, 2026</div></div></div>
+        <div class="news-card"><div class="news-th">🏆</div><div class="news-b"><div class="news-cat">Estudio</div><div class="news-t">Exitoso resultado en causa de delito económico complejo</div><div class="news-d">15 de marzo, 2026</div></div></div>
+      </div>
+    </div>
+    <div class="tab-content" id="t-add">
+      <div class="add-panel">
+        <h3>📤 Subir nuevo contenido</h3>
+        <div class="frow">
+          <div class="ff"><label>Tipo de contenido</label><select id="cType"><option value="video">Video (YouTube / URL)</option><option value="news">Noticia</option></select></div>
+          <div class="ff"><label>Título</label><input type="text" id="cTitle" placeholder="Título del contenido"/></div>
+        </div>
+        <div class="frow">
+          <div class="ff"><label>URL del video / noticia</label><input type="url" id="cUrl" placeholder="https://youtu.be/..."/></div>
+          <div class="ff"><label>Categoría</label><input type="text" id="cCat" placeholder="Ej: Juicio por Jurados"/></div>
+        </div>
+        <div class="ff" style="margin-bottom:1rem;"><label>Descripción</label><textarea id="cDesc" placeholder="Descripción del contenido..."></textarea></div>
+        <button class="cf-submit" onclick="addContent()" style="max-width:220px;">Publicar contenido</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REDES -->
+<section id="redes">
+  <div class="container" style="text-align:center;">
+    <div class="sec-label">Seguinos</div>
+    <h2 class="sec-title">Redes sociales</h2>
+    <div class="sec-line" style="margin:0 auto 1.2rem;"></div>
+    <p style="color:var(--gray);margin-bottom:0;font-size:.95rem;font-weight:300;">Contenido jurídico, análisis de casos, audiencias penales y actualidad legal</p>
+    <div class="redes-grid">
+      <a href="https://www.tiktok.com/@doctorlawyer_bariloche" target="_blank" class="red tt">
+        <div class="red-ic"><svg width="52" height="52" viewBox="0 0 24 24" fill="#69C9D0"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.29 6.29 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.72a4.85 4.85 0 0 1-1.01-.03z"/></svg></div>
+        <div class="red-n">TikTok</div><div class="red-h">@doctorlawyer_bariloche</div>
+      </a>
+      <a href="https://www.instagram.com/doctorlawyer_penal/" target="_blank" class="red ig">
+        <div class="red-ic">
+          <svg width="52" height="52" viewBox="0 0 24 24"><defs><linearGradient id="igG" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#F77737"/><stop offset="50%" stop-color="#FD1D1D"/><stop offset="100%" stop-color="#833AB4"/></linearGradient></defs><path fill="url(#igG)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </div>
+        <div class="red-n">Instagram</div><div class="red-h">@doctorlawyer_penal</div>
+      </a>
+      <a href="https://www.youtube.com/@doctorlawyer2432" target="_blank" class="red yt">
+        <div class="red-ic"><svg width="52" height="52" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></div>
+        <div class="red-n">YouTube</div><div class="red-h">@doctorlawyer2432</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="container">
+    <div class="sec-label">Contacto</div>
+    <h2 class="sec-title">Consultá tu caso</h2>
+    <div class="sec-line"></div>
+    <div class="contact-grid">
+      <div>
+        <div class="ci"><div class="ci-ic">📱</div><div><div class="ci-lbl">WhatsApp Business · Vía preferida</div><div class="ci-val">+54 9 2944 500611</div><div class="ci-sub">Respuesta rápida · Consulta confidencial</div></div></div>
+        <div class="ci"><div class="ci-ic">⚖️</div><div><div class="ci-lbl">Matrícula Provincial</div><div class="ci-val">N° 4648 — CASCB</div></div></div>
+        <div class="ci"><div class="ci-ic">🏛️</div><div><div class="ci-lbl">Matrícula Federal</div><div class="ci-val">T° 127 — F° 856</div></div></div>
+        <div class="ci"><div class="ci-ic">🤝</div><div><div class="ci-lbl">Especialidades adicionales</div><div class="ci-val">Mediador y Resolutor Alternativo de Conflictos</div><div class="ci-sub">Análisis Delictual e Investigación Compleja</div></div></div>
+        <div class="ci"><div class="ci-ic">📍</div><div><div class="ci-lbl">Área de actuación</div><div class="ci-val">Patagonia Argentina</div><div class="ci-sub">Jurisdicción provincial y federal</div></div></div>
+        <div class="ci-email-wrap">
+          <div class="ci-email-label">— o contactar por correo electrónico —</div>
+          <a href="mailto:ab.navarrodiegofrancisco@gmail.com" class="ci-email-btn">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            ab.navarrodiegofrancisco@gmail.com
+          </a>
+          <div class="ci-email-note">Consultas detalladas o documentación adjunta</div>
+        </div>
+        <a href="https://wa.me/542944500611?text=Hola%20Doctor%20Lawyer%2C%20necesito%20consultar%20sobre%20un%20caso." target="_blank" class="wa-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.524 5.847L.057 23.55a.75.75 0 0 0 .916.948l5.93-1.557A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.855 0-3.59-.5-5.085-1.373l-.363-.215-3.52.923.939-3.427-.236-.374A9.951 9.951 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Escribir por WhatsApp
+        </a>
+      </div>
+      <div class="contact-form">
+        <h3>Enviar consulta</h3>
+        <div class="cf-field"><label>Nombre completo</label><input type="text" id="cfName" placeholder="Su nombre"/></div>
+        <div class="cf-field"><label>Teléfono / WhatsApp</label><input type="tel" id="cfTel" placeholder="+54 9 ..."/></div>
+        <div class="cf-field"><label>Email</label><input type="email" id="cfEmail" placeholder="su@email.com"/></div>
+        <div class="cf-field"><label>Tipo de consulta</label>
+          <select id="cfTipo">
+            <option value="">Seleccionar área</option>
+            <option>Juicio por Jurados</option>
+            <option>Delitos Complejos</option>
+            <option>Delitos contra la Integridad Sexual</option>
+            <option>Defensa de Fuerzas de Seguridad</option>
+            <option>Defensa Penal General</option>
+            <option>Ley 24.660 — Ejecución Penal</option>
+            <option>Usurpación y Desalojos Penales</option>
+            <option>Mediación / RAC</option>
+            <option>Análisis Delictual</option>
+            <option>Prueba Digital / Peritaje Forense Celular</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="cf-field"><label>Descripción del caso</label><textarea id="cfMsg" placeholder="Describa brevemente su situación..."></textarea></div>
+        <button class="cf-submit" onclick="sendContact()">Enviar consulta →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMENTARIOS -->
+<section id="comentarios">
+  <div class="container">
+    <div class="sec-label">Comunidad</div>
+    <h2 class="sec-title">Comentarios</h2>
+    <div class="sec-line"></div>
+    <div class="cmts-wrap">
+      <div class="cmt-form">
+        <h3>Dejá tu comentario</h3>
+        <div class="ff" style="margin-bottom:.9rem;"><label>Nombre</label><input type="text" id="cmtName" placeholder="Tu nombre (puede ser anónimo)"/></div>
+        <div class="ff" style="margin-bottom:.9rem;"><label>Comentario</label><textarea id="cmtText" placeholder="Escribí tu comentario, consulta general o experiencia..." style="height:90px;background:var(--dark3);border:1px solid rgba(245,196,0,0.12);color:var(--white);padding:.65rem .9rem;font-family:'Lato',sans-serif;font-size:.88rem;outline:none;resize:vertical;width:100%;"></textarea></div>
+        <button class="cf-submit" onclick="addComment()" style="max-width:220px;">Publicar comentario</button>
+      </div>
+      <div id="cmtList">
+        <div class="cmt"><div class="cmt-av">👤</div><div><div class="cmt-nm">Carlos R.</div><div class="cmt-dt">15 de marzo, 2026</div><div class="cmt-tx">Excelente profesional. Me acompañó en todo el proceso penal y logramos un resultado muy favorable en el juicio por jurados. Totalmente recomendable.</div></div></div>
+        <div class="cmt"><div class="cmt-av">👤</div><div><div class="cmt-nm">María G.</div><div class="cmt-dt">8 de marzo, 2026</div><div class="cmt-tx">Muy claro para explicar el proceso, siempre disponible para responder dudas. Una persona muy capacitada y comprometida con su trabajo.</div></div></div>
+        <div class="cmt"><div class="cmt-av">👤</div><div><div class="cmt-nm">Familia Torres</div><div class="cmt-dt">1 de marzo, 2026</div><div class="cmt-tx">Gracias al Dr. Navarro pudimos resolver una situación muy difícil. Su experiencia en mediación fue clave para llegar a un acuerdo justo para todos.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-logo">Doctor Lawyer</div>
+  <div class="ft-sub">Dr. Navarro Diego Francisco · Abogado Penalista</div>
+  <div class="ft-mat">
+    Mat. Prov. N° 4648 CASCB &nbsp;·&nbsp; Mat. Federal T° 127 F° 856<br/>
+    Mediador y Resolutor Alternativo de Conflictos &nbsp;·&nbsp; Análisis Delictual e Investigación Compleja<br/>
+    WhatsApp Business: +54 9 2944 500611 &nbsp;·&nbsp; <a href="mailto:ab.navarrodiegofrancisco@gmail.com" style="color:#555;text-decoration:none;">ab.navarrodiegofrancisco@gmail.com</a>
+  </div>
+  <div class="ft-links">
+    <a href="#hero">Inicio</a><a href="#about">Nosotros</a><a href="#services">Servicios</a>
+    <a href="#actualidad">Actualidad</a><a href="#noticias">Videos</a>
+    <a href="#redes">Redes</a><a href="#comentarios">Comentarios</a><a href="#contacto">Contacto</a>
+  </div>
+  <div class="ft-copy">© 2026 Doctor Lawyer — Estudio Jurídico Penal · Patagonia Argentina</div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/542944500611?text=Hola%20Doctor%20Lawyer%2C%20necesito%20una%20consulta." target="_blank" class="float-wa" title="Consultar por WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.524 5.847L.057 23.55a.75.75 0 0 0 .916.948l5.93-1.557A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.855 0-3.59-.5-5.085-1.373l-.363-.215-3.52.923.939-3.427-.236-.374A9.951 9.951 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+  function toggleMenu(){document.getElementById('navLinks').classList.toggle('open');}
+  function closeMenu(){document.getElementById('navLinks').classList.remove('open');}
+
+  function enviarConsultaHero(){
+    const nombre=document.getElementById('hcNombre').value.trim();
+    const tel=document.getElementById('hcTel').value.trim();
+    const msg=document.getElementById('hcMsg').value.trim();
+    if(!msg){showToast('⚠️ Escribí tu consulta antes de enviar');return;}
+    const texto=`Hola Doctor Lawyer, soy ${nombre||'un visitante de tu web'}.\nTel: ${tel||'no informado'}\n\nConsulta: ${msg}`;
+    window.open(`https://wa.me/542944500611?text=${encodeURIComponent(texto)}`,'_blank');
+    document.getElementById('hcNombre').value='';
+    document.getElementById('hcTel').value='';
+    document.getElementById('hcMsg').value='';
+    showToast('✅ Redirigiendo a WhatsApp...');
+  }
+  function switchTab(e,id){
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+    e.target.classList.add('active');
+    document.getElementById(id).classList.add('active');
+  }
+  function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3200);}
+  function addContent(){
+    const type=document.getElementById('cType').value;
+    const title=document.getElementById('cTitle').value.trim();
+    const url=document.getElementById('cUrl').value.trim();
+    const cat=document.getElementById('cCat').value.trim()||'General';
+    if(!title){showToast('⚠️ Ingresá un título');return;}
+    const fecha=new Date().toLocaleDateString('es-AR',{day:'numeric',month:'long',year:'numeric'});
+    if(type==='video'){
+      let embedUrl='';
+      try{
+        if(url.includes('youtu.be/')){const v=url.split('youtu.be/')[1]?.split('?')[0];embedUrl=`https://www.youtube.com/embed/${v}`;}
+        else if(url.includes('youtube.com/watch')){const v=new URL(url).searchParams.get('v');embedUrl=`https://www.youtube.com/embed/${v}`;}
+      }catch(e){}
+      const card=document.createElement('div');card.className='vid-card';
+      card.innerHTML=`<div class="vid-embed">${embedUrl?`<iframe src="${embedUrl}" allowfullscreen loading="lazy"></iframe>`:`<div class="vid-ph"><div class="vid-play">▶</div><p>${cat}</p></div>`}</div><div class="vid-info"><div class="vid-t">${title}</div><div class="vid-m">Doctor Lawyer · ${fecha}</div></div>`;
+      document.getElementById('vidGrid').prepend(card);
+      document.querySelectorAll('.tab-btn')[0].click();
+    } else {
+      const icons=['📰','⚖️','🏛️','🔍','💼','🤝'];
+      const ic=icons[Math.floor(Math.random()*icons.length)];
+      const card=document.createElement('div');card.className='news-card';
+      card.innerHTML=`<div class="news-th">${ic}</div><div class="news-b"><div class="news-cat">${cat}</div><div class="news-t">${title}</div><div class="news-d">${fecha}</div></div>`;
+      document.getElementById('newsGrid').prepend(card);
+      document.querySelectorAll('.tab-btn')[1].click();
+    }
+    ['cTitle','cUrl','cCat','cDesc'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+    showToast('✅ Contenido publicado correctamente');
+  }
+  function sendContact(){
+    const name=document.getElementById('cfName').value.trim();
+    const tel=document.getElementById('cfTel').value.trim();
+    const tipo=document.getElementById('cfTipo').value;
+    const msg=document.getElementById('cfMsg').value.trim();
+    if(!name||!msg){showToast('⚠️ Completá nombre y mensaje');return;}
+    const waMsg=encodeURIComponent(`Hola Doctor Lawyer, soy ${name}.\nTel: ${tel||'no informado'}\nConsulta: ${tipo||'General'}\n\n${msg}`);
+    window.open(`https://wa.me/542944500611?text=${waMsg}`,'_blank');
+    showToast('✅ Redirigiendo a WhatsApp...');
+    ['cfName','cfTel','cfEmail','cfMsg'].forEach(id=>document.getElementById(id).value='');
+    document.getElementById('cfTipo').value='';
+  }
+  function addComment(){
+    const name=document.getElementById('cmtName').value.trim()||'Anónimo';
+    const text=document.getElementById('cmtText').value.trim();
+    if(!text){showToast('⚠️ Escribí tu comentario primero');return;}
+    const div=document.createElement('div');div.className='cmt';div.style.animation='fadeUp .5s ease';
+    div.innerHTML=`<div class="cmt-av">👤</div><div><div class="cmt-nm">${name}</div><div class="cmt-dt">${new Date().toLocaleDateString('es-AR',{day:'numeric',month:'long',year:'numeric'})}</div><div class="cmt-tx">${text}</div></div>`;
+    document.getElementById('cmtList').prepend(div);
+    document.getElementById('cmtName').value='';document.getElementById('cmtText').value='';
+    showToast('✅ Comentario publicado');
+  }
+
+  /* ═══ MATRIX RAIN ═══ */
+  (function(){
+    const canvas = document.getElementById('matrixCanvas');
+    const ctx    = canvas.getContext('2d');
+
+    // Caracteres temáticos: términos jurídico-penales + símbolos + números de artículos
+    const chars = (
+      'PENALDELITOJURADOIMPUTADODEFENSAFISCALPRUEBADIGITALFORENSETESTIGO' +
+      'SENTENCIARECURSOEXCARCELACIONARRESTODETENIDOAUTORCOAUTORENCUBRIDOR' +
+      'DOLOEVIDENCIAPERICIAVICTIMAQUERELLANTEABSOLUCIONCONDENACASACION' +
+      'LEYCODIGO2466018CPPNLEGITIMOSUSPENSOJUICIOORAL' +
+      '§⚖️📱🔍📋αβΨΩΣΔΦΠΛΘ01' +
+      'NARCOTRAFICOBLANQUEOLAVADOCRIMENFRAUDE'
+    ).split('');
+
+    const FONT_SZ  = 13;   // px por carácter
+    const SPEED    = 0.45; // columnas avanzadas por frame (< 1 = más lento)
+    const OPACITY  = 0.13; // opacidad total del canvas (ya en CSS, aquí el trail)
+
+    let cols, drops, frameCounter = 0;
+
+    function resize(){
+      canvas.width  = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+      cols  = Math.floor(canvas.width / FONT_SZ);
+      drops = Array.from({length: cols}, () => Math.random() * -canvas.height / FONT_SZ);
+    }
+
+    function draw(){
+      // Trail muy suave: fondo semitransparente sobre el canvas anterior
+      ctx.fillStyle = 'rgba(7,7,7,0.18)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.font = FONT_SZ + 'px monospace';
+
+      for(let i = 0; i < cols; i++){
+        const y = Math.floor(drops[i]) * FONT_SZ;
+
+        // Color: verde Matrix clásico discreto
+        const bright = Math.random() > 0.5;
+        if(bright){
+          ctx.fillStyle = 'rgba(0,220,80,0.82)';  // verde brillante — punta activa
+        } else {
+          ctx.fillStyle = 'rgba(0,160,50,0.38)';  // verde apagado — cuerpo del rastro
+        }
+
+        const ch = chars[Math.floor(Math.random() * chars.length)];
+        ctx.fillText(ch, i * FONT_SZ, y);
+
+        // Avanzar la gota
+        drops[i] += SPEED;
+
+        // Reset aleatorio cuando supera el canvas
+        if(y > canvas.height && Math.random() > 0.975){
+          drops[i] = Math.random() * -40;
+        }
+      }
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+    setInterval(draw, 40); // ~25 fps — suave y discreto
+  })();
+</script>
+</body>
+</html>
